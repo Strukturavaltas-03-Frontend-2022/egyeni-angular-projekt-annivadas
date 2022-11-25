@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { MovieComponent } from './page/movie/movie.component';
 import { NavComponent } from './common/nav/nav.component';
 import { HomeComponent } from './page/home/home.component';
+import { MoviePipe } from './pipe/movie.pipe';
+import { MovieEditorComponent } from './page/movie-editor/movie-editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieComponent,
     NavComponent,
-    HomeComponent
+    HomeComponent,
+    MoviePipe,
+    MovieEditorComponent
   ],
   imports: [
     BrowserModule,
