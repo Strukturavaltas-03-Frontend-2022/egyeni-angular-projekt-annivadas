@@ -1,9 +1,32 @@
+<div class="row mt-3 ">
+  <div class="col-12 col-md-6 col-xl-3 card-group" *ngFor="let row of movieList$ | async">
+
+      <div class="card mb-3" style="width: 18rem;">
+          <img [src]="row.poster" class="card-img-top" alt="...">
+          <div class="card-body">
+              <h5 class="card-title">Title: {{row.title}}</h5>
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Genre: {{row.genre}}</li>
+                  <li class="list-group-item">Director: {{row.director}}</li>
+                  <li class="list-group-item">ReleaseYear: {{row.releaseYear}}</li>
+                  <li class="list-group-item">Studio: {{row.studio}}</li>
+                  <li class="list-group-item">Active: {{row.active}}</li>
+              </ul>
+              <a [routerLink]="['/movie/edit', row.id]" class="btn btn-primary mx-2">Edit
+                  <i class="fa fa-edit"></i>
+              </a>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!--
 <div class="container">
-  <div class="row">
+  <div class="row mt-3">
     <div class="col-12">
       <div class="input-group mb-3">
         <input
-
+          [(ngModel)]="filterPhrase$"
           type="text"
           class="form-control"
           placeholder="Choose movie"
@@ -33,13 +56,21 @@
               {{row[col.key]}}
             </td>
             <td>
-              <button class="btn btn-info">
-                <i class="fa fa-edit"></i>
+              <button [routerLink]="['/movie/edit', row.id]" class="btn btn-info">
+                <i class="fa fa-edit"></i>update
               </button>
             </td>
           </tr>
         </tbody>
+        <div class="btn-group">
+        <button class="btn btn-info">
+          <i class="fa fa-edit"></i>
+        </button>
+      </div>
       </table>
     </div>
   </div>
-</div>
+</div> -->
+
+
+

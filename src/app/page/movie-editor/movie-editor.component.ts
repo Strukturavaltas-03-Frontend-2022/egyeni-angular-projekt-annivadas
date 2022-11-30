@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, switchMap } from 'rxjs';
+import { Movie } from 'src/app/model/movie';
+import { MovieService } from 'src/app/service/movie.service';
 
 @Component({
   selector: 'app-movie-editor',
@@ -7,9 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieEditorComponent implements OnInit {
 
-  constructor() { }
+  movie$: Observable<Movie> = this.ar.params.pipe (
+    switchMap( params => this.movieService.get( params['id'] ) ),
+  )
 
-  ngOnInit(): void {
+  constructor(
+    private ar: ActivatedRoute,
+    private movieService: MovieService,
+    private router: Router,
+  ) { }
+
+
+  ngOnInit(
+
+  ): void {
+  }
+
+  onUpdate(movie: Movie): void {
+    this.movieService.update(movie).subscribe(
+      movie => this.router.navigate(['/movie'])
+    )
   }
 
 }

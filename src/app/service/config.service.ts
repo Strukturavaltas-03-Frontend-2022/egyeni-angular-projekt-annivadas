@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
-export interface ITableColumn {
+
+ export interface ITableColumn {
   title: string,
   key: string,
 }
@@ -11,7 +12,7 @@ export interface ITableColumn {
 export class ConfigService {
 
   movieTableColumns: ITableColumn[] = [
-    {title: 'ID', key: 'id'},
+    {title: 'Id', key: 'id'},
     {title: 'Title', key: 'title'},
     {title: 'Genre', key: 'genre'},
     {title: 'Director', key: 'director'},
@@ -19,7 +20,7 @@ export class ConfigService {
     {title: 'Poster', key: 'poster'},
     {title: 'Studio', key: 'studio'},
     {title: 'Active', key: 'active'},
-  ]
+  ];
 
   constructor() { }
 }
