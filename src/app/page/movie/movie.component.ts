@@ -12,13 +12,24 @@ import { Router } from '@angular/router';
 })
 export class MovieComponent implements OnInit {
 
-  columns: ITableColumn[] = this.configService.movieTableColumns
+
 
   movieList$: Observable<Movie[]> = this.movieService.getAll();
 
   phrase: string = '';
   filterPhrase: string = '';
   sorterPhrase: string = '';
+
+  columns: ITableColumn[] =  [
+
+    {title: 'Title', key: 'title'},
+    {title: 'Genre', key: 'genre'},
+    {title: 'Director', key: 'director'},
+    {title: 'Year', key: 'releaseYear'},
+    {title: 'Poster', key: 'poster'},
+    {title: 'Studio', key: 'studio'},
+    {title: 'Active', key: 'active'},
+  ];
 
 
   constructor(
@@ -30,4 +41,10 @@ export class MovieComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onDelete(movie: Movie): void {
+    this.movieService.delete(movie).subscribe(
+      movie => this.movieList$ = this.movieService.getAll(),
+    );
+
+}
 }

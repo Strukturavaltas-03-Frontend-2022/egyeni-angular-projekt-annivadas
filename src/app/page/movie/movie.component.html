@@ -42,10 +42,12 @@
 
     </ul>
     <div class="card-body">
-      <a [routerLink]="['/list/edit', row.id]" class="btn btn-primary mx-2">Edit
+      <a [routerLink]="['/movie/edit', row.id]" class="btn btn-primary mx-2">Edit
         <i class="fa fa-edit"></i>
     </a>
-      <a href="#" class="card-link">Another link</a>
+    <a (click)="onDelete(row)" class="btn btn-danger">Delete
+      <i class="fa fa-trash"></i>
+  </a>
     </div>
 
   </div>
