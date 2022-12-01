@@ -10,6 +10,8 @@ import { NavComponent } from './common/nav/nav.component';
 import { HomeComponent } from './page/home/home.component';
 import { MoviePipe } from './pipe/movie.pipe';
 import { MovieEditorComponent } from './page/movie-editor/movie-editor.component';
+import { SorterPipe } from './pipe/sorter.pipe';
+import { FilterPipe } from './pipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { MovieEditorComponent } from './page/movie-editor/movie-editor.component
     NavComponent,
     HomeComponent,
     MoviePipe,
-    MovieEditorComponent
+    MovieEditorComponent,
+    SorterPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

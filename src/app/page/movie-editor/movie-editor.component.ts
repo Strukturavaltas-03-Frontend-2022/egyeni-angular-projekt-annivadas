@@ -12,7 +12,8 @@ import { MovieService } from 'src/app/service/movie.service';
 export class MovieEditorComponent implements OnInit {
 
   movie$: Observable<Movie> = this.ar.params.pipe (
-    switchMap( params => this.movieService.get( params['id'] ) ),
+    switchMap( (params: { [x: string]: number; }) =>
+    this.movieService.get(params['id']) ),
   )
 
   constructor(
