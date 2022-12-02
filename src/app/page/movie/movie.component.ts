@@ -20,8 +20,9 @@ export class MovieComponent implements OnInit {
   filterPhrase: string = '';
   sorterPhrase: string = '';
 
-  columns: ITableColumn[] =  [
 
+
+  columns: ITableColumn[] =  [
     {title: 'Title', key: 'title'},
     {title: 'Genre', key: 'genre'},
     {title: 'Director', key: 'director'},

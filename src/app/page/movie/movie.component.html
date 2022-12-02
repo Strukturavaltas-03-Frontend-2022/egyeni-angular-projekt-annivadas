@@ -3,9 +3,12 @@
     <div class="input-group mb-3">
       <div class="input-group-text filterselect">
           <select [(ngModel)]="filterPhrase" class="form-control select ">
-              <option value="">filter everywhere</option>
+              <option value="">Choose...
+                <i class="fa fa-sort-desc"></i>
+              </option>
               <option *ngFor="let col of columns" [value]="col.key">
                   {{ col.title }}
+
               </option>
           </select>
       </div>
@@ -14,32 +17,35 @@
   </div>
 </div>
 
-<div class="sorterContainer row mb-5 mt-2">
+<div class="row mb-5 mt-2">
   <div class="sorter">
     <div>
       <select class="sortingSelect col-12 col-sm-2" [(ngModel)]="sorterPhrase">
         <option value="">Sorting by ...</option>
-        <option *ngFor="let col of columns" [value]="col.key">{{col.title}}</option>
+        <option *ngFor="let col of columns" [value]="col.key">
+          {{col.title}}
+          <i class="fa fa-sort-desc"></i>
+        </option>
       </select>
     </div>
   </div>
 </div>
 
 <div  class="row mt-3">
-  <div *ngFor="let row of movieList$ |async|filter: phrase: filterPhrase |sorter: sorterPhrase"
-  class= "col-12 col-md-6 col-lg-3 card" style="width: 18rem mx-auto;">
-    <img [src]="row.poster" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{row.title}}</h5>
+  <div *ngFor="let row of movieList$ |async
+  |filter: phrase: filterPhrase
+  |sorter: sorterPhrase"
 
+  class= "col-12 col-md-6 col-lg-3 card" style="width: 18rem mx-auto;">
+    <img [src]="row.poster" class="card-img-top" alt="..." height="350rem">
+     <div class="card-body">
+      <h5 class="card-title">{{row.title}}</h5>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">{{row.genre}}</li>
-      <li class="list-group-item">{{row.director}}</li>
-      <li class="list-group-item">{{row.releaseYear}}</li>
-      <li class="list-group-item">{{row.studio}}</li>
-      <li class="list-group-item">{{row.active}}</li>
-
+      <li class="list-group-item">Year: {{row.releaseYear}}</li>
+      <li class="list-group-item">Studio: {{row.studio}}</li>
+      <li class="list-group-item">Active: {{row.active}}</li>
     </ul>
     <div class="card-body">
       <a [routerLink]="['/movie/edit', row.id]" class="btn btn-primary mx-2">Edit
@@ -49,8 +55,8 @@
       <i class="fa fa-trash"></i>
   </a>
     </div>
-
   </div>
+
 </div>
 
 

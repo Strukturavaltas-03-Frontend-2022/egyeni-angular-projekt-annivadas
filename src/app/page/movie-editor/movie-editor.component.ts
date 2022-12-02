@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
 import { Movie } from 'src/app/model/movie';
@@ -28,10 +29,13 @@ export class MovieEditorComponent implements OnInit {
   ): void {
   }
 
-  onUpdate(movie: Movie): void {
+   onUpdate(movie: Movie): void {
     this.movieService.update(movie).subscribe(
       movie => this.router.navigate(['/movie'])
     )
   }
 
 }
+
+
+
