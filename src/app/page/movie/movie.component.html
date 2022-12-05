@@ -18,8 +18,7 @@
 </div>
 
 <div class="row mb-5 mt-2">
-  <div class="sorter">
-    <div>
+    <div class="input-group">
       <select class="sortingSelect col-12 col-sm-2" [(ngModel)]="sorterPhrase">
         <option value="">Sorting by ...</option>
         <option *ngFor="let col of columns" [value]="col.key">
@@ -29,15 +28,15 @@
       </select>
     </div>
   </div>
-</div>
 
-<div  class="row mt-3">
+
+<div class="row mt-3">
   <div *ngFor="let row of movieList$ |async
   |filter: phrase: filterPhrase
   |sorter: sorterPhrase"
 
   class= "col-12 col-md-6 col-lg-3 card" style="width: 18rem mx-auto;">
-    <img [src]="row.poster" class="card-img-top" alt="..." height="350rem">
+    <img [src]="row.poster" class="card-img-top  px-2" alt="..." height="350rem">
      <div class="card-body">
       <h5 class="card-title">{{row.title}}</h5>
     </div>
